@@ -1,0 +1,18 @@
+
+[Unit]
+Description=target-linux-service
+Documentation=https://example.com
+After=network.target
+
+[Service]
+Environment=NODE_PORT=3334
+Type=simple
+User=pi
+WorkingDirectory=/path-to/target-linux-service
+ExecStart=npm start
+Restart=on-failure
+StandardOutput=append:/tmp/target-linux-service.log
+StandardError=append:/tmp/target-linux-service.log
+
+[Install]
+WantedBy=multi-user.target
